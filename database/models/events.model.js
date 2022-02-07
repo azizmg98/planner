@@ -14,13 +14,9 @@ const validateName = name => {
 	}
 };
 
-const validatesSeets = num => {
-	if (num && +num > +this.numOfSeats) {
-		return false;
-	} else {
-		return true;
-	}
-};
+function validatesSeats(num) {
+	return !(num && num > this.numOfSeats);
+}
 
 const EventSchema = new Schema(
 	{
@@ -52,7 +48,7 @@ const EventSchema = new Schema(
 			type: Number,
 			default: 0,
 			max: this.numOfSeats,
-			validate: validatesSeets,
+			validate: validatesSeats,
 		},
 		startDate: {
 			type: Date,
