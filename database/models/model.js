@@ -8,7 +8,7 @@ var validateEmail = function (email) {
 };
 const EventSchema = new Schema(
   {
-    organizer: { type: String, unique: true, maxlength: 20 },
+    organizer: { type: String, unique: true, maxLength: 20 },
     name: { type: String, match: /^\d{"event"}$/ },
     email: {
       type: String,

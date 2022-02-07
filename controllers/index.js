@@ -25,13 +25,14 @@ exports.showEventController = async (req, res) => {
 exports.showEventDetailsController = async (req, res) => {
 	const { id } = req.params;
 	try {
-		const foundevent = await Event.findOne(id);
+		const foundevent = await Event.findById(id);
 		if (foundevent) {
 			res.status(200).json({ msg: foundevent });
 		} else {
 			res.status(404).send("Product not found");
 		}
 	} catch (error) {
+		console.log(error);
 		res.status(500).json(error);
 	}
 };
